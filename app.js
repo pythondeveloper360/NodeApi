@@ -69,20 +69,20 @@ app.post("/api/:apikey",(req,res)=>{
     newValue = req.headers.value;
 
     authsql = `select  COUNT(1) from users where username = ? and password = ?`;
-    existsql = `select COUNT(1) from data where username = ${user} and apikey = ${apikey}`;
-    altersql = `update from data set value = ${newValue} where apikey = ${apikey} and user = '${user}`;
+    existsql = `select COUNT(1) from data where user = ? and apikey = ?`;
+    altersql = `update  data set value = ? where apikey = ? and user = ?`;
     con.query(authsql,[user,password],(error,resul,fei) =>{
         if (resul){
-            con.query(existsql,(err,resu,feil)=>{
+            con.query(existsql,[user,apikey],(err,resu,feil)=>{
                 if (resu){
-                    con.query(altersql,(erro,result,fe) =>{
+                    con.query(altersql,[newValue,apikey,user],(erro,result,fe) =>{
                         res.status(200).send("Ok Done")
                     })
 
                 }
                 else{
                     console.log(feil)
-                    console.log(resul)
+                    console.log(resu)
                     console.log(existsql)
                     res.status(404).send("No record found")
                 }
