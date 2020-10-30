@@ -1,7 +1,6 @@
 {
   "name": "nodeapi",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -14,5 +13,15 @@
     "moment": "^2.27.0",
     "mysql": "^2.18.1",
     "nodemon": "^2.0.4"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pythondeveloper360/NodeApi.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pythondeveloper360/NodeApi/issues"
+  },
+  "homepage": "https://github.com/pythondeveloper360/NodeApi#readme",
+  "description": ""
 }
