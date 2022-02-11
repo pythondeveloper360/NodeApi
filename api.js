@@ -23,23 +23,21 @@ app.get("/postBySlug/:slug", (req, res) => {
   }
 });
 
-app.post('/authUser',(req,res)=>{
-  console.log(req.headers.password)
-  if ((req.headers.username) && (req.headers.password)){
-    server.authUser(req.headers.username,req.headers.password)
-    .then((result)=>{
-      if (result.rowCount){
-        res.send({auth:true})
-      }
-      else{
-        res.send({auth:false})
-      }
-    })
+app.post("/authUser", (req, res) => {
+  console.log(req.headers.password);
+  if (req.headers.username && req.headers.password) {
+    server
+      .authUser(req.headers.username, req.headers.password)
+      .then((result) => {
+        if (result.rowCount) {
+          res.send({ auth: true });
+        } else {
+          res.send({ auth: false });
+        }
+      });
+  } else {
+    res.send({ auth: false });
   }
-  else{
-    res.send({auth:false})
-  }
-})
+});
 
-
-app.listen(3333);
+app.listen(process.env.PORT||3000);
