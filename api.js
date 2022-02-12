@@ -1,9 +1,11 @@
 const express = require("express");
+const cors = require("cors");
 const Server = require("./server");
 
 let server = new Server();
 
 const app = express();
+app.use(cors());
 app.get("/allposts", (req, res) => {
   server.allPosts().then((result) => {
     res.send(result.rows);
@@ -39,4 +41,4 @@ app.post("/authUser", (req, res) => {
   }
 });
 
-app.listen(process.env.PORT||3000);
+app.listen(process.env.PORT || 3000);
