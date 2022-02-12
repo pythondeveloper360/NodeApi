@@ -15,11 +15,11 @@ module.exports = class Server {
     });
   }
   allPosts() {
-    return this.client.query("select * from post");
+    return this.client.query("select * from posts");
   }
   postBySlug(slug) {
     return this.client.query({
-      text: "select * from post where slug = $1",
+      text: "select * from posts where slug = $1",
       values: [slug],
     });
   }
