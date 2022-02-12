@@ -4,10 +4,10 @@ module.exports = class Server {
   constructor() {
     this.client = new Client({
       port: "5432",
-      user: "postgres",
-      database: "bloggir",
-      host: "localhost",
-      password: "qsa-1299",
+      user: "lplqspoubhwcfp",
+      database: "d4dchnmqjoj76a",
+      host: "ec2-44-193-188-118.compute-1.amazonaws.com",
+      password: "e24b21c50e5d12be7fa170cd738e5b60d36b06be7de5de8b919fb5f414559386",
     });
     this.client.connect();
   }
