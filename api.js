@@ -24,7 +24,6 @@ app.get("/postBySlug/:slug", (req, res) => {
 });
 
 app.post("/authUser", (req, res) => {
-  console.log(req.headers.password);
   if (req.headers.username && req.headers.password) {
     server
       .authUser(req.headers.username, req.headers.password)
